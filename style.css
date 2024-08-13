@@ -4,8 +4,9 @@
 :root {
   /* colors */
   --clr-white: hsl(0 0 100 / 1);
-  --clr-light: hsl(0 0 95 / 1);
+  --clr-light: hsl(0 0 98 / 1);
   --clr-dark: 234 12% 34%;
+  --clr-gray: hsl(229, 6%, 66%);
   --clr-red: hsl(0 78 62 / 1);
   --clr-cyan: hsl(180 62 55 / 1);
   --clr-orange: hsl(34 97 64 / 1);
@@ -64,17 +65,18 @@ ol[role="list"] {
   list-style: none;
 }
 
-/* Set core body defaults */
-body {
-  display: grid;
-  place-items: center;
-  min-height: 100vh;
-  line-height: 1.5;
-  color: hsl(var(--clr-dark) / 1);
-  background-color: var(--clr-light);
+html {
   font-family: var(--ff-sans);
   font-weight: var(--fw-regular);
   font-size: var(--fs-400);
+  color: var(--clr-gray);
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  background-color: var(--clr-light);
 }
 
 p {
@@ -90,6 +92,7 @@ button,
 input,
 label {
   line-height: 1.1;
+  color: hsl(var(--clr-dark) / 1);
 }
 
 /* Balance text wrapping on headings */
@@ -186,7 +189,7 @@ textarea:not([rows]) {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 4rem;
+  margin-block: 4rem;
 }
 
 .heading-light {
@@ -197,11 +200,10 @@ textarea:not([rows]) {
 .technology-card {
   background-color: var(--clr-white);
   border-radius: 0.35rem;
-  box-shadow: 0px 10px 10px 5px hsl(var(--clr-dark) / 0.2);
+  box-shadow: 0px 10px 10px -5px hsl(var(--clr-dark) / 0.2);
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  max-width: 22rem;
 }
 
 .icon {
@@ -209,10 +211,12 @@ textarea:not([rows]) {
 }
 
 .card-container {
+  margin-inline: auto;
+  max-width: 1100px;
   display: grid;
   gap: 2rem;
   grid-template-rows: repeat(5, 1fr);
-  grid-template-columns: minmax(0, 1fr), minmax(0, 1fr), minmax(0, 1fr);
+  grid-auto-columns: repeat(3, 1fr);
 }
 
 .side-card-left {
